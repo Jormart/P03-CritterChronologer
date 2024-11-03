@@ -11,9 +11,11 @@ import org.springframework.stereotype.Service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
+@Transactional
 public class ScheduleService {
 
     private static final Logger logger = LoggerFactory.getLogger(ScheduleService.class);
@@ -50,6 +52,7 @@ public class ScheduleService {
         logger.info("Fetching schedules for customer ID: {}", customerId);
         return scheduleRepository.findByPets_OwnerId(customerId);
     }
+
 
     public List<Schedule> getAllSchedules() {
         logger.info("Fetching all schedules");

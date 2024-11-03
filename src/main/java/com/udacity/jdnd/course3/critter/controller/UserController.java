@@ -65,7 +65,7 @@ public class UserController {
         employeeService.setEmployeeAvailability(employeeId, daysAvailable);
     }
 
-    @GetMapping("/employee/availability")
+    @PostMapping("/employee/availability")
     public List<EmployeeDTO> findEmployeesForService(@RequestBody EmployeeRequestDTO employeeRequestDTO) {
         List<Employee> employees = employeeService.findEmployeesForService(
                 employeeRequestDTO.getSkills(),
